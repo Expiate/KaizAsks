@@ -11,7 +11,7 @@ import com.expiate.kaizasks.utils.ProgressBarAnimation;
 
 public class LoadingScreen extends AppCompatActivity {
 
-    private TextView cargando;
+    private TextView chargeText;
     private ProgressBar progressBar;
 
     @Override
@@ -19,7 +19,7 @@ public class LoadingScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pantalla_de_carga);
 
-        cargando = findViewById(R.id.cargandoTextView);
+        chargeText = findViewById(R.id.cargandoTextView);
         progressBar = findViewById(R.id.loadScreenProgressBar);
 
         progressBar.setMax(100);
@@ -30,7 +30,7 @@ public class LoadingScreen extends AppCompatActivity {
      * Start the ProgressBar animation
      */
     public void startProgressBarAnimation() {
-        ProgressBarAnimation anim = new ProgressBarAnimation(this, progressBar, cargando,
+        ProgressBarAnimation anim = new ProgressBarAnimation(this, progressBar, chargeText,
                 0f, 100f);
         anim.setDuration(8000);
         progressBar.setAnimation(anim);
