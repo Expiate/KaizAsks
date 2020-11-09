@@ -23,10 +23,13 @@ public class LoadingScreen extends AppCompatActivity {
         progressBar = findViewById(R.id.loadScreenProgressBar);
 
         progressBar.setMax(100);
-        progressBarAnimation();
+        startProgressBarAnimation();
     }
 
-    public void progressBarAnimation() {
+    /**
+     * Start the ProgressBar animation
+     */
+    public void startProgressBarAnimation() {
         ProgressBarAnimation anim = new ProgressBarAnimation(this, progressBar, cargando,
                 0f, 100f);
         anim.setDuration(8000);

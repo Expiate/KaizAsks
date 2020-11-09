@@ -26,6 +26,11 @@ public class ProgressBarAnimation extends Animation {
         this.to = to;
     }
 
+    /**
+     * Main method that applies the animation changes to the ProgressBar and the TextView
+     * @param interpolatedTime Defined duration time of the animation
+     * @param t
+     */
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         super.applyTransformation(interpolatedTime, t);
         float value = from + (to - from) * interpolatedTime;
