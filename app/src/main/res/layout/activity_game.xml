@@ -6,4 +6,103 @@
     android:layout_height="match_parent"
     tools:context=".GameActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8activityGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.29" />
+
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.expiate.kaizasks.fragments.QuestionsFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6activityGame"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2activityGame"
+        app:layout_constraintStart_toStartOf="@+id/guideline1activityGame"
+        app:layout_constraintTop_toTopOf="@+id/guideline5activityGame" />
+
+    <Button
+        android:id="@+id/resolveButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/resolve"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4activityGame"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2activityGame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionFragment" />
+
+    <TextView
+        android:id="@+id/hpTextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/hpLabelText"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7activityGame"
+        app:layout_constraintEnd_toStartOf="@+id/guideline8activityGame"
+        app:layout_constraintStart_toStartOf="@+id/guideline1activityGame"
+        app:layout_constraintTop_toTopOf="@+id/guideline3activityGame" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline7activityGame"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2activityGame"
+        app:layout_constraintStart_toStartOf="@+id/guideline8activityGame"
+        app:layout_constraintTop_toTopOf="@+id/guideline3activityGame" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

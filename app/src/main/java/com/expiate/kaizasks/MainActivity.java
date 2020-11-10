@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * Override interface method to communicate the LoadOrPlay Dialog
+     *
      * @param r Represents the user's choice
      */
     @Override

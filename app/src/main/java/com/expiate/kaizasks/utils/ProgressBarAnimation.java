@@ -7,6 +7,7 @@ import android.view.animation.Transformation;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.expiate.kaizasks.GameActivity;
 import com.expiate.kaizasks.MainActivity;
 
 public class ProgressBarAnimation extends Animation {
@@ -29,7 +30,7 @@ public class ProgressBarAnimation extends Animation {
     /**
      * Main method that applies the animation changes to the ProgressBar and the TextView
      * @param interpolatedTime Defined duration time of the animation
-     * @param t
+     * @param t Transformation object param
      */
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         super.applyTransformation(interpolatedTime, t);
@@ -38,7 +39,7 @@ public class ProgressBarAnimation extends Animation {
         textView.setText((int) value + " %");
 
         if (value == to) {
-            context.startActivity(new Intent(context, MainActivity.class));
+            context.startActivity(new Intent(context, GameActivity.class));
         }
     }
 }
