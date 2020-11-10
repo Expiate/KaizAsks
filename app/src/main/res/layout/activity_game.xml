@@ -62,9 +62,8 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.29" />
 
-    <fragment
-        android:id="@+id/questionFragment"
-        android:name="com.expiate.kaizasks.fragments.QuestionsFragment"
+    <FrameLayout
+        android:id="@+id/placeholder"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6activityGame"
@@ -82,7 +81,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4activityGame"
         app:layout_constraintEnd_toStartOf="@+id/guideline2activityGame"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionFragment" />
+        app:layout_constraintTop_toBottomOf="@+id/placeholder" />
 
     <TextView
         android:id="@+id/hpTextView"
