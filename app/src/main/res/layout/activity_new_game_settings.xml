@@ -6,4 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".NewGameSettingsActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1GameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2GameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.98"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3GameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4GameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5GameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.12" />
+
+    <TextView
+        android:id="@+id/newGameSettingsTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/newGameSettingsLabel"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline5GameSettings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintStart_toStartOf="@+id/guideline1GameSettings"
+        app:layout_constraintTop_toTopOf="@+id/guideline3GameSettings" />
+
+    <Button
+        android:id="@+id/startNewGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4GameSettings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintHorizontal_bias="0.938"
+        app:layout_constraintStart_toStartOf="@+id/guideline1GameSettings" />
 </androidx.constraintlayout.widget.ConstraintLayout>

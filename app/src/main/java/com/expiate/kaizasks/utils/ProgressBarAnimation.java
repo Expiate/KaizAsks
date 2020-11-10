@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.expiate.kaizasks.GameActivity;
 import com.expiate.kaizasks.MainActivity;
+import com.expiate.kaizasks.NewGameSettingsActivity;
 
 public class ProgressBarAnimation extends Animation {
 

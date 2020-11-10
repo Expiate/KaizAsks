@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void getChoice(int r) {
         if(r == 1) {
-            Intent intentToLoadingScreen = new Intent(this, LoadingScreen.class);
+            Intent intentToLoadingScreen = new Intent(this, NewGameSettingsActivity.class);
             startActivity(intentToLoadingScreen);
         }
     }
