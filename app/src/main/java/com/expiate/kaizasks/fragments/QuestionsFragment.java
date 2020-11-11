@@ -6,11 +6,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.expiate.kaizasks.R;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,14 +28,15 @@ import com.expiate.kaizasks.R;
  */
 public class QuestionsFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_PARAM = "map";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Map<String, ArrayList<String>> metaData = new TreeMap<>();
+
+    private TextView question;
+    private TextView answer1;
+    private TextView answer2;
+    private TextView answer3;
+    private TextView answer4;
 
     public QuestionsFragment() {
         // Required empty public constructor
@@ -36,16 +46,16 @@ public class QuestionsFragment extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     * @param metaData A Map that contains the main MetaData of the
+     *                 fragment.
      * @return A new instance of fragment QuestionsFragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static QuestionsFragment newInstance(String param1, String param2) {
+    public static QuestionsFragment newInstance(Map<String, ArrayList<String>> metaData) {
         QuestionsFragment fragment = new QuestionsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        Gson gson = new Gson();
+        String json = gson.toJson(metaData);
+        args.putString(ARG_PARAM, json);
         fragment.setArguments(args);
         return fragment;
     }
@@ -54,8 +64,9 @@ public class QuestionsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            String json = getArguments().getString(ARG_PARAM);
+            Gson gson = new Gson();
+            metaData = gson.fromJson(json, TreeMap.class);
         }
     }
 
@@ -69,5 +80,23 @@ public class QuestionsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Get UI ID's
+        question = view.findViewById(R.id.questionTitle);
+        answer1 = view.findViewById(R.id.respuesta1);
+        answer2 = view.findViewById(R.id.respuesta2);
+        answer3 = view.findViewById(R.id.respuesta3);
+        answer4 = view.findViewById(R.id.respuesta4);
+
+        // Unpack the Data
+        ArrayList<String> texts = metaData.get("1");
+
+        // Set the Data on UI
+        question.setText(texts.get(0));
+        answer1.setText(texts.get(1));
+        answer2.setText(texts.get(2));
+        answer3.setText(texts.get(3));
+        answer4.setText(texts.get(4));
+
     }
 }
