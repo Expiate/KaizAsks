@@ -38,6 +38,8 @@ public class QuestionsFragment extends Fragment {
     private TextView answer3;
     private TextView answer4;
 
+    private int correctAnswer;
+
     public QuestionsFragment() {
         // Required empty public constructor
     }
@@ -97,6 +99,7 @@ public class QuestionsFragment extends Fragment {
         answer2.setText(texts.get(2));
         answer3.setText(texts.get(3));
         answer4.setText(texts.get(4));
+        correctAnswer = Integer.parseInt(texts.get(5));
 
     }
 }

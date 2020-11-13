@@ -13,4 +13,5 @@
     <string name="hpLabelText">HP</string>
     <string name="newGameSettingsLabel">NEW GAME SETTINGS</string>
     <string name="start">START</string>
+    <string name="theme">Theme</string>
 </resources>

@@ -30,6 +30,7 @@ public class GameActivity extends AppCompatActivity {
         strings.add("Answer2");
         strings.add("Answer3");
         strings.add("Answer4");
+        strings.add("1");
         data.put("1", strings);
         questionsFragmentSetup(data);
     }

@@ -41,6 +41,13 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.12" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6GameSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
     <TextView
         android:id="@+id/newGameSettingsTextView"
         android:layout_width="0dp"
@@ -63,4 +70,25 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
         app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="@+id/guideline1GameSettings" />
+
+    <TextView
+        android:id="@+id/themeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/theme"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6GameSettings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="@+id/guideline1GameSettings"
+        app:layout_constraintTop_toTopOf="@+id/guideline5GameSettings"
+        app:layout_constraintVertical_bias="0.151" />
+
+    <Spinner
+        android:id="@+id/themeSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6GameSettings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintStart_toEndOf="@+id/themeTextView"
+        app:layout_constraintTop_toTopOf="@+id/guideline5GameSettings" />
 </androidx.constraintlayout.widget.ConstraintLayout>
