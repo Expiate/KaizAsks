@@ -11,28 +11,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.02"/>
+        app:layout_constraintGuide_percent="0.02" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2GameSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.98"/>
+        app:layout_constraintGuide_percent="0.98" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3GameSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.02"/>
+        app:layout_constraintGuide_percent="0.02" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4GameSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.98"/>
+        app:layout_constraintGuide_percent="0.98" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5GameSettings"
@@ -46,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <TextView
         android:id="@+id/newGameSettingsTextView"
@@ -76,19 +76,50 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/theme"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline6GameSettings"
         app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
-        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="@+id/guideline1GameSettings"
         app:layout_constraintTop_toTopOf="@+id/guideline5GameSettings"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/difficultyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/theme"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6GameSettings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="@+id/guideline1GameSettings"
+        app:layout_constraintTop_toBottomOf="@+id/themeTextView"
+        app:layout_constraintVertical_bias="0.731" />
 
     <Spinner
         android:id="@+id/themeSpinner"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline6GameSettings"
         app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toEndOf="@+id/themeTextView"
-        app:layout_constraintTop_toTopOf="@+id/guideline5GameSettings" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5GameSettings"
+        app:layout_constraintVertical_bias="0.112" />
+
+    <Spinner
+        android:id="@+id/difficultySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6GameSettings"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2GameSettings"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toEndOf="@+id/difficultyTextView"
+        app:layout_constraintTop_toTopOf="@+id/guideline5GameSettings"
+        app:layout_constraintVertical_bias="0.845" />
 </androidx.constraintlayout.widget.ConstraintLayout>

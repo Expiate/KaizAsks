@@ -10,11 +10,18 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+
 public class NewGameSettingsActivity extends AppCompatActivity {
 
-    private Button startNewGame;
-    private Spinner themeSpinner;
     private Context context = this;
+
+    private Button startNewGame;
+
+    private Spinner themeSpinner;
+    private Spinner difficultySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +31,36 @@ public class NewGameSettingsActivity extends AppCompatActivity {
         // Get UI ID's
         startNewGame = findViewById(R.id.startNewGameButton);
         themeSpinner = findViewById(R.id.themeSpinner);
+        difficultySpinner = findViewById(R.id.difficultySpinner);
 
         // Listeners
         startNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Gson gson = new Gson();
+
+                // Collect the user choices
+                ArrayList<String> options = new ArrayList<>();
+                options.add(themeSpinner.getSelectedItem().toString());
+                options.add(difficultySpinner.getSelectedItem().toString());
+                // Serialize
+                String json = gson.toJson(options);
+                // Intent to Game Activity
                 Intent intent = new Intent(context, LoadingScreen.class);
+                intent.putExtra("1", json);
                 startActivity(intent);
             }
         });
 
         // Spinners Adapters
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
+        ArrayAdapter<CharSequence> themeAdapter = ArrayAdapter.createFromResource(context,
                 R.array.themes, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        themeSpinner.setAdapter(adapter);
+        themeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        themeSpinner.setAdapter(themeAdapter);
+
+        ArrayAdapter<CharSequence> diffAdapter = ArrayAdapter.createFromResource(context,
+                R.array.diff, android.R.layout.simple_spinner_item);
+        diffAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        difficultySpinner.setAdapter(diffAdapter);
     }
 }

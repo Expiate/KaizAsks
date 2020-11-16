@@ -11,4 +11,16 @@
             <string>Cinema</string>
         </item>
     </array>
+
+    <array name="diff">
+        <item>
+            <string>Easy</string>
+        </item>
+        <item>
+            <string>Normal</string>
+        </item>
+        <item>
+            <string>Hard</string>
+        </item>
+    </array>
 </resources>
