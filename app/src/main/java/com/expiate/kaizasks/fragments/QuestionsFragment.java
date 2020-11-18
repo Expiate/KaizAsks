@@ -1,9 +1,12 @@
 package com.expiate.kaizasks.fragments;
 
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -39,6 +42,12 @@ public class QuestionsFragment extends Fragment {
     private TextView answer4;
 
     private int correctAnswer;
+    private int selectedAnswer = 0;
+
+    private Drawable selectedAnswerDrawable;
+    private Drawable notSelectedAnswerDrawable;
+
+    private Resources res;
 
     public QuestionsFragment() {
         // Required empty public constructor
@@ -90,16 +99,83 @@ public class QuestionsFragment extends Fragment {
         answer3 = view.findViewById(R.id.respuesta3);
         answer4 = view.findViewById(R.id.respuesta4);
 
-        // Unpack the Data
-        ArrayList<String> texts = metaData.get("1");
+        // Get the Resources needed for the Answer Logic
+        res = getResources();
+        selectedAnswerDrawable = ResourcesCompat.getDrawable(res, R.drawable.selected_answer,
+                null);
+        notSelectedAnswerDrawable = ResourcesCompat.getDrawable(res, R.drawable.two_state_element,
+                null);
 
-        // Set the Data on UI
+        // Set the Question
+        loadQuestion("1");
+
+        // Listeners
+        addAnswerListener(answer1, 1);
+        addAnswerListener(answer2, 2);
+        addAnswerListener(answer3, 3);
+        addAnswerListener(answer4, 4);
+    }
+
+    /**
+     * Load the Question Text's that are returned from the Database Query
+     *
+     * @param set Points the target set of texts that forms the question ( Is a number )
+     */
+    public void loadQuestion(String set) {
+        ArrayList<String> texts = metaData.get(set);
+
         question.setText(texts.get(0));
         answer1.setText(texts.get(1));
         answer2.setText(texts.get(2));
         answer3.setText(texts.get(3));
         answer4.setText(texts.get(4));
         correctAnswer = Integer.parseInt(texts.get(5));
+    }
 
+    /**
+     * Changes the actual Drawable Resource of the desired TextView
+     *
+     * @param textView Target TextView
+     * @param drawable New Drawable
+     */
+    public void changeAnswerDrawable(TextView textView, Drawable drawable) {
+        textView.setBackground(drawable);
+    }
+
+    /**
+     * Add a custom listener to the target TextView
+     *
+     * @param textView Target TextView
+     * @param number This defines the number which later will be the representation of
+     *               the answer tied to that TextView
+     */
+    public void addAnswerListener(TextView textView, int number) {
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(selectedAnswer != 0) {
+                    TextView target;
+                    switch (selectedAnswer) {
+                        case 1:
+                            target = answer1;
+                            break;
+                        case 2:
+                            target = answer2;
+                            break;
+                        case 3:
+                            target = answer3;
+                            break;
+                        case 4:
+                            target = answer4;
+                            break;
+                        default:
+                            throw new IllegalStateException("Unexpected value: " + selectedAnswer);
+                    }
+                    changeAnswerDrawable((TextView) target, notSelectedAnswerDrawable);
+                }
+                changeAnswerDrawable((TextView) v, selectedAnswerDrawable);
+                selectedAnswer = number;
+            }
+        });
     }
 }
